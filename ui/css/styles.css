@@ -1,0 +1,50 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 30px;
+	background-color: black;
+}
+
+#btn-back-to-top {
+	position: fixed;
+	bottom: 40px;
+	right: 20px;
+	display: none;
+}
+
+#donateButton {
+	top: 1.5rem;
+}
+
+#leakButton {
+	top: 1.5rem;
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover {
+	background-color: #111519 !important;
+}
+
+.list-group-item-action .list-group-item-header .leak-trash {
+	background: unset;
+	margin-top: -0.5rem;
+}
+
+.modal .modal-dialog {
+	top: 30%;
+}
+
+.modal .modal-dialog .modal-content {
+	background-color: black;
+}
+
+#leakTextArea {
+	resize: none;
+}
+
+.footer {
+	bottom: 0;
+	line-height: 30px;
+}
