@@ -6,7 +6,7 @@ Pese a que todo el mundo conoce WikiLeaks, organización que se ocupa de publica
 WikiLeaks ya sufrió ataques y censuras, dado que la web en la que se publicaban las filtraciones necesitaba estar albergada en un servidor, y las donaciones al proyecto se realizaban por lo métodos tradiciones de los pagos online. KiwiLeaks será un proyecto que se desarrollará en la Web 3.0, en la red de Ethereum, evitando así la censura y los ataques, y permitiendo que el público general contribuya al proyecto mediante donaciones que no están sujetas a las normas de las autoridades monetarias.
 
 # Diseño de la solución
-El proyecto se basará principalmente en un smart contract (KiwiLeaks.sol) para gestionar la publicación y despublicación de filtraciones, y el envío de donaciones. Y otro smart contract (KWC.sol) para la creación de un token ERC20, el Kiwicoin (KWC), con el que recompensar a los donantes.
+El proyecto se basará principalmente en un smart contract (KiwiLeaks.sol) para gestionar la publicación y despublicación de filtraciones, y el envío de donaciones. Y otro smart contract (KWC.sol) para la creación de un token ERC20, el Kiwicoin (KWC), con el que recompensar a los donantes a modo de estímulo.
 
 ## KiwiLeaks.sol
 
@@ -75,6 +75,10 @@ Para compilar y desplegar los contratos se usará el editor Remix. Los pasos par
  1. Desplegar KWC.sol y guardar la dirección del contrato.
  2. Desplegar KiwiLeaks.sol, aportando la dirección del contrato desplegado en el primer paso.
  3. Transferir tokens KWC al contrato desplegado en el segundo paso, para permitir recibir donaciones.
+
+La versión actual de los contratos desplegados es:
+- [KiwiLeaks.sol](https://ropsten.etherscan.io/address/0x1A4d973448aC86386faF149D9C80b4779515dC15)
+- [KWC.sol](https://ropsten.etherscan.io/token/0x8ED81AFb7E888f51A6965d592359f9E3aAD2E83a)
 
 # Mejoras planeadas
 
