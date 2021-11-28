@@ -31,7 +31,7 @@ $("#leakTextArea").on('input propertychange paste', function() {
 //End refresh amount of characters out of MAX_LEN**********************************
 //Start web3 app ******************************************************************
 
-abi = 
+abiKiwiLeaks = 
 [
 	{
 		"inputs": [
@@ -210,9 +210,288 @@ abi =
 		"type": "receive"
 	}
 ];
+abiKWC = 
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "subtractedValue",
+				"type": "uint256"
+			}
+		],
+		"name": "decreaseAllowance",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "addedValue",
+				"type": "uint256"
+			}
+		],
+		"name": "increaseAllowance",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
 var addressKiwiLeaks = '0x1A4d973448aC86386faF149D9C80b4779515dC15';
 var addressKWC = '0x8ED81AFb7E888f51A6965d592359f9E3aAD2E83a';
-var contract;
+var contractKiwiLeaks;
+var contractKWC;
 var MAX_LEN = 0;
 var blockHeight;
 
@@ -226,7 +505,6 @@ function initWeb3() {
 		try {
 			window.ethereum.autoRefreshOnNetworkChange = true;
 		} catch (error) {
-			console.log('User denied web3 access');
 			noWallet();
 			return;
 		}
@@ -242,18 +520,14 @@ function initWeb3() {
 			location.reload();
 		});
 
-	//} else if (window.web3) {
-	//	web3 = new Web3(web3.currentProvider);
-	//	
 	} else {
-		console.log('No web3 provider detected');
 		noWallet();
 		return;
 	}
 
 	web3.eth.getCode(addressKiwiLeaks).then(function(code) {
 		if(code !== "0x0" && code !== "0x") {
-			initContract();
+			initcontractKiwiLeaks();
 		} else {
 			noWallet();
 			return;
@@ -264,99 +538,64 @@ function initWeb3() {
 function noWallet() {
 	web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/791be6ecf5bb45de8fb48616b7435f81"));
 
-	contract = new web3.eth.Contract(abi, addressKiwiLeaks);
-	console.log('contract  OK');
-	console.log(contract);
+	contractKiwiLeaks = new web3.eth.Contract(abiKiwiLeaks, addressKiwiLeaks);
+	contractKWC = new web3.eth.Contract(abiKWC, addressKWC);
 
-	contract.methods.getLeaks().call({from: "0x0000000000000000000000000000000000000000"}, function(error, result) {
-		var leaks = [...result];
-		leaks.sort((l1, l2) => l1.date - l2.date);
-		leaks.forEach(leak => addLeak(leak));
-	});
+	web3.eth.getBlockNumber().then(result => blockHeight = result);
+	
+	getLeaks();
+	
+	initSubscribe();
 }
 
-function initContract() {
-	contract = new web3.eth.Contract(abi, addressKiwiLeaks);
-	console.log('contract  OK');
-	console.log(contract);
+function initcontractKiwiLeaks() {
+	contractKiwiLeaks = new web3.eth.Contract(abiKiwiLeaks, addressKiwiLeaks);
+	contractKWC = new web3.eth.Contract(abiKWC, addressKWC);
+	
 	web3.eth.getBlockNumber().then(result => blockHeight = result);
 
-	contract.methods.getMaxLen().call({from: web3.eth.accounts.currentProvider.selectedAddress}, function(error, result){
-		if(error) {
-			console.log(error);
-		} else {
-			MAX_LEN = result;
-			$("#leakTextArea").attr("maxlength", MAX_LEN);
-			$("#charMax").text(MAX_LEN);
-			$("#leakButton").toggleClass("d-none");
+	contractKiwiLeaks.methods.getMaxLen().call({from: web3.eth.accounts.currentProvider.selectedAddress}).then(function(result){
+		MAX_LEN = result;
+		$("#leakTextArea").attr("maxlength", MAX_LEN);
+		$("#charMax").text(MAX_LEN);
+		$("#leakButton").toggleClass("d-none");
 
-			$("#sendLeakBtn").on("click", function() {
-				publishLeak();
-			});
-		}
+		$("#sendLeakBtn").on("click", function() {
+			publishLeak();
+		});
+	}).catch(function(error) {
+		console.log(error);
 	});
 
 	refreshAvailableKWC();
 
 	getLeaks();
+	
+	initSubscribe();
+}
 
+function initSubscribe() {
 	// Subscribe publish event
-	let optionsPublish = {
-		fromBlock: 0,
-		address: [addressKiwiLeaks],
-		topics: [web3.utils.sha3('LeakPublished(bytes32)')]
-	};
-
-	let subscriptionPublish = web3.eth.subscribe('logs', optionsPublish,(err,event) => {
-		if (err) {
-			console.log(err);
-		}
-	});
-
-	subscriptionPublish.on('data', function(event) {
+	contractKiwiLeaks.events.LeakPublished({}).on('data', function(event) {
 		if(event.blockNumber > blockHeight) {
-			contract.methods.getLeakByHash(event.data).call({from: web3.eth.accounts.currentProvider.selectedAddress}, function(error, result) {
+			contractKiwiLeaks.methods.getLeakByHash(event.raw.data).call().then(function(result) {
 				addLeak({date: result.date, text: result.text, isPublic: result.isPublic});
 			});
 		}
 	});
 
 	// Subscribe unpublish event
-	let optionsUnpublish = {
-		fromBlock: 0,
-		address: [addressKiwiLeaks],
-		topics: [web3.utils.sha3('LeakUnpublished(bytes32)')]
-	};
-
-	let subscriptionUnpublish = web3.eth.subscribe('logs', optionsUnpublish,(err,event) => {
-		if (err) {
-			console.log(err);
-		}
-	});
-
-	subscriptionUnpublish.on('data', function(event) {
+	contractKiwiLeaks.events.LeakUnpublished({}).on('data', function(event) {
 		if(event.blockNumber > blockHeight) {
-			removeLeak(event.data.substring(2));
+			removeLeak(event.raw.data.substring(2));
 		}
 	});
 
 	// Subscribe transfer event
-	let optionsTransfer = {
-		fromBlock: 0,
-		address: [addressKWC],
-		topics: [web3.utils.sha3('Transfer(address,address,uint256)')]
-	};
-
-	let subscriptionTransfer = web3.eth.subscribe('logs', optionsTransfer,(err,event) => {
-		if (err) {
-			console.log(err);
-		}
-	});
-
-	subscriptionTransfer.on('data', function(event) {
+	contractKWC.events.Transfer({}).on('data', function(event) {
 		if(event.blockNumber > blockHeight) {
-			stringKiwiLeaksAddress = addressKiwiLeaks.toLowerCase().substring(2)
-			if(event.topics[1].endsWith(stringKiwiLeaksAddress) || event.topics[2].endsWith(stringKiwiLeaksAddress)) {
+			stringKiwiLeaksAddress = addressKiwiLeaks.toLowerCase().substring(2);
+			if(event.raw.topics[1].endsWith(stringKiwiLeaksAddress) || event.raw.topics[2].endsWith(stringKiwiLeaksAddress)) {
 				refreshAvailableKWC();
 			}
 		}
@@ -366,14 +605,14 @@ function initContract() {
 function publishLeak() {
 	var leakString = $("#leakTextArea").val().substring(0, MAX_LEN);
 	if(leakString !== '') {
-		contract.methods.publishLeak(leakString).send({from: web3.eth.accounts.currentProvider.selectedAddress});
+		contractKiwiLeaks.methods.publishLeak(leakString).send({from: web3.eth.accounts.currentProvider.selectedAddress});
 		$("#leakTextArea").val('');
 		$("#leakModal button.btn-close").click();
 	}
 }
 
 function getLeaks() {
-	contract.methods.getLeaks().call({from: web3.eth.accounts.currentProvider.selectedAddress}, function(error, result) {
+	contractKiwiLeaks.methods.getLeaks().call().then(function(result) {
 		var leaks = [...result];
 		leaks.sort((l1, l2) => l1.date - l2.date);
 		leaks.forEach(leak => addLeak(leak));
@@ -381,75 +620,75 @@ function getLeaks() {
 }
 
 function refreshAvailableKWC() {
-	contract.methods.availableKWC().call({from: web3.eth.accounts.currentProvider.selectedAddress}, function(error, result){
-		if(error) {
-			console.log(error);
+	contractKiwiLeaks.methods.availableKWC().call().then(function(result) {
+		let tokens = result / 10**18;
+		$("#availableTokens").text(tokens);
+
+		if(tokens >= 1) {
+			if($("#donateButton").hasClass("d-none")) {
+				$("#donateButton").toggleClass("d-none");
+			}
+			if($("#KWC1toETH").hasClass("d-none")) {
+				$("#KWC1toETH").toggleClass("d-none");
+			}
+
+			if(tokens >= 2) {
+				if($("#KWC2toETH").hasClass("d-none")) {
+					$("#KWC2toETH").toggleClass("d-none");
+				}
+			} else {
+				if(!$("#KWC2toETH").hasClass("d-none")) {
+					$("#KWC2toETH").toggleClass("d-none");
+				}
+			}
+
+			if(tokens >= 5) {
+				if($("#KWC5toETH").hasClass("d-none")) {
+					$("#KWC5toETH").toggleClass("d-none");
+				}
+			} else {
+				if(!$("#KWC5toETH").hasClass("d-none")) {
+					$("#KWC5toETH").toggleClass("d-none");
+				}
+			}
+		} else {
 			if(!$("#donateButton").hasClass("d-none")) {
 				$("#donateButton").toggleClass("d-none");
 			}
 			if($("#donateModal").hasClass("show")) {
 				$("#donateModal button.btn-close").click();
 			}
-		} else {
-			let tokens = result / 10**18;
-			$("#availableTokens").text(tokens);
-
-			if(tokens >= 1) {
-				if($("#donateButton").hasClass("d-none")) {
-					$("#donateButton").toggleClass("d-none");
-				}
-				if($("#KWC1toETH").hasClass("d-none")) {
-					$("#KWC1toETH").toggleClass("d-none");
-				}
-
-				if(tokens >= 2) {
-					if($("#KWC2toETH").hasClass("d-none")) {
-						$("#KWC2toETH").toggleClass("d-none");
-					}
-				} else {
-					if(!$("#KWC2toETH").hasClass("d-none")) {
-						$("#KWC2toETH").toggleClass("d-none");
-					}
-				}
-
-				if(tokens >= 5) {
-					if($("#KWC5toETH").hasClass("d-none")) {
-						$("#KWC5toETH").toggleClass("d-none");
-					}
-				} else {
-					if(!$("#KWC5toETH").hasClass("d-none")) {
-						$("#KWC5toETH").toggleClass("d-none");
-					}
-				}
-			} else {
-				if(!$("#donateButton").hasClass("d-none")) {
-					$("#donateButton").toggleClass("d-none");
-				}
-				if($("#donateModal").hasClass("show")) {
-					$("#donateModal button.btn-close").click();
-				}
-			}
+		}
+	}).catch(function(error) {
+		console.log(error);
+		if(!$("#donateButton").hasClass("d-none")) {
+			$("#donateButton").toggleClass("d-none");
+		}
+		if($("#donateModal").hasClass("show")) {
+			$("#donateModal button.btn-close").click();
 		}
 	});
 }
 
 function addLeak(leak) {
 	const itemHash = web3.utils.sha3(leak.text).substring(2);
-	unpublishButton = (MAX_LEN > 0) ? '<button type="button" class="btn-close leak-trash" onclick="unpublishLeakModal(\''+itemHash+'\')"><i class="far fa-trash-alt text-secondary"></i></button>' : '';
-	listItem = '<div id="'+ itemHash +'" class="list-group-item list-group-item-action d-flex gap-3 py-3 text-light bg-dark">'
-			+		'<div class="gap-2 w-100">'
-			+			'<div class="list-group-item-header d-flex w-100 justify-content-between">'
-			+				'<small class="opacity-50 leak-date">' + secToDate(leak.date) + '</small>'
-			+				unpublishButton
-			+			'</div>'
-			+			'<div>'
-			+				'<p class="mb-0 mt-1 opacity-75 leak-text">' + leak.text + '</p>'
-			+			'</div>'
-			+		'</div>'
-			+	'</div>';
+	if(!$("#"+itemHash).length) {
+		unpublishButton = (MAX_LEN > 0) ? '<button type="button" class="btn-close leak-trash" onclick="unpublishLeakModal(\''+itemHash+'\')"><i class="far fa-trash-alt text-secondary"></i></button>' : '';
+		listItem = '<div id="'+ itemHash +'" class="list-group-item list-group-item-action d-flex gap-3 py-3 text-light bg-dark">'
+				+		'<div class="gap-2 w-100">'
+				+			'<div class="list-group-item-header d-flex w-100 justify-content-between">'
+				+				'<small class="opacity-50 leak-date">' + secToDate(leak.date) + '</small>'
+				+				unpublishButton
+				+			'</div>'
+				+			'<div>'
+				+				'<p class="mb-0 mt-1 opacity-75 leak-text">' + leak.text + '</p>'
+				+			'</div>'
+				+		'</div>'
+				+	'</div>';
 
-	if(leak.isPublic) {
-		$("#leaksList").prepend(listItem);
+		if(leak.isPublic) {
+			$("#leaksList").prepend(listItem);
+		}
 	}
 }
 
@@ -467,7 +706,7 @@ function unpublishLeakModal(hash) {
 
 function unpublishLeak(hash) {
 	if(hash !== '') {
-		contract.methods.unpublishLeak("0x"+hash).send({from: web3.eth.accounts.currentProvider.selectedAddress});
+		contractKiwiLeaks.methods.unpublishLeak("0x"+hash).send({from: web3.eth.accounts.currentProvider.selectedAddress});
 		$("#unpublishModal button.btn-close").click();
 	}
 }
@@ -485,7 +724,7 @@ function donate(BWCamount) {
 			ETHamount = 5000000000000000;
 			break;
 	}
-	contract.methods.donate().send({from: web3.eth.accounts.currentProvider.selectedAddress, value: ETHamount});
+	contractKiwiLeaks.methods.donate().send({from: web3.eth.accounts.currentProvider.selectedAddress, value: ETHamount});
 }
 
 function secToDate(seconds) {
